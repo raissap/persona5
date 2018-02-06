@@ -39,18 +39,24 @@ export const negotiationGuide = {
     { text: 'Dislikes' },
     { text: 'Neutral' }
   ],
-  body: Object.keys(PERSONALITIES).map(key => (
-    [
-      { text: PERSONALITIES[key].name },
-      { text: PERSONALITIES[key].likes.join(', ') },
-      { text: PERSONALITIES[key].dislikes.join(', ') },
-      { text: PERSONALITIES[key].neutral.join(', ') }
-    ]
-  ))
+  // Built in the NegotiationGuideTable component's getBody method
+  body: []
  };
 
  export const responseGuide = {
   body: [
+    // Lilith #2
+    [
+      { text: 'You\'re beautiful.', response: RESPONSES.kind },
+      { text: 'You\'re scary.' },
+      { text: 'Nothing in particular' }
+    ],
+    // Lilith #1
+    [
+      { text: 'Meat and potatoes.', response: RESPONSES.kind },
+      { text: 'I don\'t eat homemade food.' },
+      { text: 'Can you actually cook?' }
+    ],
     [
       { text: 'You\'re kind of evil.', response: RESPONSES.serious },
       { text: 'Don\'t play the tragic hero.' },
@@ -59,7 +65,7 @@ export const negotiationGuide = {
     [
       { text: 'All right.' },
       { text: 'A deal with the enemy?' },
-      { text: 'I can\'t trust you.', notes: 'irritable = angry' }
+      { text: 'I can\'t trust you.', notes: 'kind/vague' }
     ],
     [
       { text: 'Aren\'t you scared?', response: RESPONSES.kind },
@@ -79,11 +85,11 @@ export const negotiationGuide = {
     [
       { text: 'I feel bad about that.', response: RESPONSES.funny },
       { text: 'I\'m ME!' },
-      { text: 'I don\'t have to answer you.', notes: 'irritable = angry' },
+      { text: 'I don\'t have to answer you.', notes: 'kind/vague' },
     ],
     [
       { text: 'My rival.' },
-      { text: 'Nobody, really.', notes: 'irritable = angry' },
+      { text: 'Nobody, really.', notes: 'kind/vague' },
       { text: 'It doesn\'t matter.' }
     ],
     [
@@ -179,7 +185,7 @@ export const negotiationGuide = {
     [
       { text: 'Slow-ass cashiers.' },
       { text: 'Egotistical women.' },
-      { text: 'I\'m not irritated.', notes: 'serious/funny??' }
+      { text: 'I\'m not irritated.', notes: 'serious/funny' }
     ],
     [
       { text: 'I do.' },

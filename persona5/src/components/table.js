@@ -5,7 +5,7 @@ export class Row extends Component {
     return this.props.values.map((value, index) => (
       React.createElement(
         this.props.isHeader ? 'th' : 'td',
-        {key: index},
+        { key: index, className: value.className },
         value.text
       )
     ))
@@ -14,7 +14,7 @@ export class Row extends Component {
 
   render() {
     return (
-      <tr>
+      <tr className={this.props.className}>
         {this.createCells()}
       </tr>
     );
@@ -34,7 +34,7 @@ export class Table extends Component {
     var body = this.getBody();
 
     return (
-      <table>
+      <table className={this.props.className}>
         <thead>
           {header}
         </thead>

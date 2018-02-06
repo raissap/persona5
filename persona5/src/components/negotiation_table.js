@@ -1,8 +1,29 @@
 import React, { Component } from 'react';
 import { Badge, OverlayTrigger, ToggleButton, ToggleButtonGroup, Tooltip } from 'react-bootstrap';
 
-import { PERSONALITIES, responseGuide } from '../data/negotiation_guide';
+import { PERSONALITIES, negotiationGuide, responseGuide } from '../data/negotiation_guide';
 import { Row, Table } from './table';
+
+class NegotiationGuideTable extends Table {
+  getBody() {
+    return Object.keys(PERSONALITIES).map((key, index) => {
+      var values = [
+        { text: PERSONALITIES[key].name },
+        { text: PERSONALITIES[key].likes.join(', '), className: 'likes' },
+        { text: PERSONALITIES[key].dislikes.join(', '), className: 'dislikes' },
+        { text: PERSONALITIES[key].neutral.join(', '), className: 'neutral' }
+      ];
+
+      return (
+        <Row
+          key={index}
+          values={values}
+          className={this.props.personality === key ? 'active' : ''}
+        />
+      );
+    });
+  }
+}
 
 class PersonalityToggle extends Component {
   render() {
@@ -77,8 +98,13 @@ export class NegotiationTableWrapper extends Component {
   render() {
     return (
       <div>
+        <NegotiationGuideTable src={negotiationGuide} personality={this.state.personality} />
         <PersonalityToggle onChange={this.changePersonality} />
-        <NegotiationTable src={responseGuide} personality={this.state.personality} />
+        <NegotiationTable
+          src={responseGuide}
+          className={this.state.personality ? 'active' : ''}
+          personality={this.state.personality}
+        />
       </div>
     )
   }

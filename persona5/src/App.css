@@ -52,15 +52,15 @@ td {
   background-color: white;
 }
 
-td.likes {
+.active td.likes {
   background-color: yellow;
 }
 
-td.dislikes {
+.active td.dislikes {
   background-color: red;
 }
 
-td.neutral {
+.active td.neutral {
   background-color: aqua;
 }
 
