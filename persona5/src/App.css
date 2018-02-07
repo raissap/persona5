@@ -24,6 +24,24 @@
 }
 
 
+.header {
+  background-color: black;
+  height: 200px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.header img {
+  height: 100%;
+}
+
+.header img.logo {
+  bottom: 0;
+  height: 75%;
+  position: absolute;
+  right: 0;
+}
+
 table {
   border-collapse: collapse;
   margin: 10px auto;
